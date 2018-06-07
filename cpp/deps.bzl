@@ -32,19 +32,28 @@ DEPS = {
     # "chromium-stable-with-bazel" branches with the BUILD files ready
     # to go.  To update, pick the newest-ish commit-id off that
     # branch.
-    "boringssl": {
-        "rule": "http_archive",
-        # master-with-bazel Fri Sep 01 15:09:13 2017 +0000
-        "url": "https://boringssl.googlesource.com/boringssl/+archive/74ffd81aa7ec3d0aa3d3d820dbeda934958ca81a.tar.gz",
-        # Shockingly, tar.gz from googlesource has a different sha256 each time.  WTF?
-        #"sha256": "7deda1bac8f10be6dca78b54b8b2886a215f6c62270afdd2ed43bc10920925c7",
-    },
+    # "boringssl": {
+    #     "rule": "http_archive",
+    #     # master-with-bazel Fri Sep 01 15:09:13 2017 +0000
+    #     "url": "https://boringssl.googlesource.com/boringssl/+archive/74ffd81aa7ec3d0aa3d3d820dbeda934958ca81a.tar.gz",
+    #     # Shockingly, tar.gz from googlesource has a different sha256 each time.  WTF?
+    #     #"sha256": "7deda1bac8f10be6dca78b54b8b2886a215f6c62270afdd2ed43bc10920925c7",
+    # },
 
+"openssl": {
+    "rule": "new_http_archive",
+    #name = "openssl",
+    "url" : "https://github.com/openssl/openssl/archive/OpenSSL_1_1_0h.tar.gz",
+    "sha256" : "f56dd7d81ce8d3e395f83285bd700a1098ed5a4cb0a81ce9522e41e6db7e0389",
+    "strip_prefix" : "openssl-OpenSSL_1_1_0h",
+    "build_file" : "//cpp:openssl.BUILD",
+},
     # libssl is required for c++ grpc where it is expected in
     # //external:libssl.  This can be either boringssl or openssl.
     "libssl": {
         "rule": "bind",
-        "actual": "@boringssl//:ssl",
+        #"actual": "@boringssl//:ssl",
+	"actual": "@openssl//:ssl",
     },
 
     # C-library for zlib
