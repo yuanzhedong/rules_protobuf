@@ -13,7 +13,8 @@ def cpp_proto_repositories(
       "com_github_madler_zlib",
       "zlib",
       "nanopb",
-      "boringssl",
+      #"boringssl",
+      "openssl",
       "libssl",
       "protoc_gen_grpc_cpp",
     ], **kwargs):
