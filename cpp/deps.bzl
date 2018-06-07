@@ -43,9 +43,9 @@ DEPS = {
 "openssl": {
     "rule": "new_http_archive",
     #name = "openssl",
-    "url" : "https://github.com/openssl/openssl/archive/OpenSSL_1_1_0h.tar.gz",
-    "sha256" : "f56dd7d81ce8d3e395f83285bd700a1098ed5a4cb0a81ce9522e41e6db7e0389",
-    "strip_prefix" : "openssl-OpenSSL_1_1_0h",
+    "url" : "https://github.com/openssl/openssl/archive/OpenSSL_1_0_2g.tar.gz",
+    "sha256" : "37b61753243c6a9fc333640f75aa921ddae662bc9f9b439416323759b2340f5a",
+    "strip_prefix" : "openssl-OpenSSL_1_0_2g",
     "build_file" : str(Label("//cpp:openssl.BUILD")),
 },
     # libssl is required for c++ grpc where it is expected in
